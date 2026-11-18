@@ -11,7 +11,7 @@ for k,n,adr,t,o in K:
     sl=[]
     for i in range(1,n+1):
         w,h=Image.open(f'img/{k}{i}-800.webp').size
-        sl.append(f'<button data-lb="img/{k}{i}-1400.webp"><img src="img/{k}{i}-800.webp" width="{w}" height="{h}" loading="lazy" decoding="async" alt="{t}, {adr} - zdjęcie {i}"></button>')
+        sl.append(f'<button data-lb="img/{k}{i}-1400.webp"><img src="img/{k}{i}-800.webp" srcset="img/{k}{i}-480.webp 480w, img/{k}{i}-800.webp 800w" sizes="(max-width:759px) 86vw, (max-width:1279px) 46vw, (max-width:1899px) 30vw, 23vw" width="{w}" height="{h}" loading="lazy" decoding="async" alt="{t}, {adr} - zdjęcie {i}"></button>')
     out.append(f'''   <article class="karta" data-grupa>
     <div class="fot"><div class="tor" data-tor>{''.join(sl)}</div><button class="st l" aria-label="Poprzednie zdjęcie" disabled><svg aria-hidden="true"><use href="#i-lew"/></svg></button><button class="st r" aria-label="Następne zdjęcie"><svg aria-hidden="true"><use href="#i-str"/></svg></button><span class="licz">1/{n}</span></div>
     <div class="opis"><span class="adres">{adr}</span><h3>{t}</h3><p>{o}</p></div>
